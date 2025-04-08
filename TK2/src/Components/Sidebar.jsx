@@ -12,12 +12,12 @@ function Sidebar() {
                 <li>Analytics</li>
                 <li>Messages</li>
                 <li>Integrations</li> */}
-               <li><NavLink to="/" id="render">Dashboard</NavLink></li> 
-               <li><NavLink to="/dashboard" >Projects</NavLink></li> 
-               <li><NavLink to="/dashboard" >Teams</NavLink></li> 
-               <li><NavLink to="/dashboard" >Analytics</NavLink></li>
-               <li><NavLink to="/dashboard" >Messages</NavLink></li> 
-                <li><NavLink to="/dashboard" >Integrations</NavLink></li>
+               <li><NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>Dashboard</NavLink></li> 
+               <li><NavLink to="/projects" className={({ isActive }) => isActive ? 'active' : ''} >Projects</NavLink></li> 
+               <li><NavLink to="/teams" className={({ isActive }) => isActive ? 'active' : ''} >Teams</NavLink></li> 
+               <li><NavLink to="/analytics" className={({ isActive }) => isActive ? 'active' : ''} >Analytics</NavLink></li>
+               <li><NavLink to="/messages" className={({ isActive }) => isActive ? 'active' : ''} >Messages</NavLink></li> 
+                <li><NavLink to="/integrations" className={({ isActive }) => isActive ? 'active' : ''} >Integrations</NavLink></li>
             </ul>
         </div>
     );

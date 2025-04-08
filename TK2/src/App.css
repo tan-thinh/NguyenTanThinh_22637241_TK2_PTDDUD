@@ -54,7 +54,7 @@
     color: #f43f5e;
 }
 
-#render {
+.menu li a.active {
     background-color: #e60176;
     color: white;
     font-weight: bold;
