@@ -107,3 +107,20 @@ menu {
     justify-content: space-between;
     align-items: center;
 }
+
+.status.new {
+    color: #007bff;
+}
+
+.status.in-progress {
+    color: #ffc107;
+}
+
+.status.completed {
+    color: #28a745;
+}
+
+.action-icon {
+    width: 20px;
+    cursor: pointer;
+}

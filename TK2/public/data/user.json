@@ -1,0 +1,81 @@
+[{
+        "name": "Alice",
+        "company": "Apple Inc.",
+        "ordervalue": 1200,
+        "orderdate": "21/03/2024",
+        "status": "New",
+        "IMG": "link_to_image_1.jpg"
+    },
+    {
+        "name": "Bob",
+        "company": "Google LLC",
+        "ordervalue": 850,
+        "orderdate": "22/03/2024",
+        "status": "In-progress",
+        "IMG": "link_to_image_2.jpg"
+    },
+    {
+        "name": "Charlie",
+        "company": "Microsoft Corp.",
+        "ordervalue": 1500,
+        "orderdate": "23/03/2024",
+        "status": "Completed",
+        "IMG": "link_to_image_3.jpg"
+    },
+    {
+        "name": "David",
+        "company": "Amazon.com Inc.",
+        "ordervalue": 2000,
+        "orderdate": "24/03/2024",
+        "status": "New",
+        "IMG": "link_to_image_4.jpg"
+    },
+    {
+        "name": "Eva",
+        "company": "Facebook, Inc.",
+        "ordervalue": 900,
+        "orderdate": "25/03/2024",
+        "status": "In-progress",
+        "IMG": "link_to_image_5.jpg"
+    },
+    {
+        "name": "Frank",
+        "company": "Tesla, Inc.",
+        "ordervalue": 3000,
+        "orderdate": "26/03/2024",
+        "status": "Completed",
+        "IMG": "link_to_image_6.jpg"
+    },
+    {
+        "name": "Grace",
+        "company": "Netflix, Inc.",
+        "ordervalue": 750,
+        "orderdate": "27/03/2024",
+        "status": "New",
+        "IMG": "link_to_image_7.jpg"
+    },
+    {
+        "name": "Hank",
+        "company": "Adobe Systems",
+        "ordervalue": 1100,
+        "orderdate": "28/03/2024",
+        "status": "In-progress",
+        "IMG": "link_to_image_8.jpg"
+    },
+    {
+        "name": "Ivy",
+        "company": "Salesforce.com, Inc.",
+        "ordervalue": 1300,
+        "orderdate": "29/03/2024",
+        "status": "Completed",
+        "IMG": "link_to_image_9.jpg"
+    },
+    {
+        "name": "Jack",
+        "company": "Zoom Video Communications",
+        "ordervalue": 1600,
+        "orderdate": "30/03/2024",
+        "status": "New",
+        "IMG": "link_to_image_10.jpg"
+    }
+]
