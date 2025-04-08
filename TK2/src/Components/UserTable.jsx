@@ -9,12 +9,12 @@ const UserTable = ({ users }) => {
       <table className="data-table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Company</th>
-            <th>Order Value</th>
-            <th>Order Date</th>
-            <th>Status</th>
-            <th>Action</th>
+            <th>CUSTOMER NAME</th>
+            <th>COMPANY</th>
+            <th>ORDER VALUE</th>
+            <th>ORDER DATE</th>
+            <th>STATUS</th>
+            <th>ACTION</th>
           </tr>
         </thead>
         <tbody>

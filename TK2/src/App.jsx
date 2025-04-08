@@ -5,7 +5,7 @@ import './App.css'
 import Sidebar from './Components/Sidebar';
 import Topbar from './Components/Topbar';
 import Dashboard from './Pages/Dashboard';
-import UserTable from './Components/UserTable';
+import UserManagement from './Pages/UserManagement';
 function App() {
 
   return (
@@ -14,7 +14,7 @@ function App() {
       <div className="main-content">
       <Topbar/>
       <Dashboard></Dashboard>
-      <UserTable></UserTable>
+      <UserManagement></UserManagement>
       </div>
     </div>
   );
