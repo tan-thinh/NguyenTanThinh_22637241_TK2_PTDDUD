@@ -1,0 +1,62 @@
+.layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+.main-content {
+    background-color: #f5f6fa;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.Sidebar {
+    background-color: #fff;
+    padding: 20px;
+    border-right: 1px solid #eee;
+}
+
+menu {
+    list-style: none;
+    padding: 0;
+}
+
+#render {
+    margin: 15px 0;
+    font-weight: bold;
+    color: #f43f5e;
+}
+
+.Topbar {
+    background-color: #fff;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    gap: 700px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    /* Center icons vertically */
+    gap: 100px;
+    /* Reduced gap for better spacing */
+}
+
+.search {
+    padding: 10px 12px;
+    width: 100%;
+    width: 700px;
+    /* Set width to 100% */
+    max-width: 700px;
+    /* Max width to limit expansion */
+    box-sizing: border-box;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    color: #333;
+}
