@@ -60,3 +60,50 @@ menu {
     height: 24px;
     color: #333;
 }
+
+.dashboard-container {
+    padding: 24px;
+}
+
+.dashboard-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.overview-box {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.overview-title {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 8px;
+}
+
+.overview-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.overview-change {
+    color: green;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
