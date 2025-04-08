@@ -1,0 +1,67 @@
+// src/Components/EditModal.jsx
+import React, { useEffect, useState } from "react";
+import { updateUser } from "./Services/userApi";
+import "./App.css";
+
+function EditModal({ user, onClose, onSave }) {
+  const [formData, setFormData] = useState(user);
+
+  useEffect(() => {
+    setFormData(user);
+  }, [user]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const updated = await updateUser(user.id, formData);
+      onSave(updated);
+      onClose();
+    } catch (error) {
+      console.error("Update error:", error);
+    }
+  };
+
+  return (
+    <div className="modal-backdrop">
+      <div className="modal-content slide-in">
+        <h2>Edit User</h2>
+        <div className="form-grid">
+          <div className="form-group">
+            <label>Name</label>
+            <input name="name" value={formData.name} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>Company</label>
+            <input name="company" value={formData.company} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>Order Value</label>
+            <input name="ordervalue" value={formData.ordervalue} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>Order Date</label>
+            <input type="date" name="orderdate" value={formData.orderdate} onChange={handleChange} />
+          </div>
+          <div className="form-group full-width">
+            <label>Status</label>
+            <select name="status" value={formData.status} onChange={handleChange}>
+              <option>New</option>
+              <option>In-progress</option>
+              <option>Completed</option>
+            </select>
+          </div>
+        </div>
+        <div className="modal-actions">
+          <button className="btn save" onClick={handleSubmit}>Save</button>
+          <button className="btn cancel" onClick={onClose}>Cancel</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default EditModal;

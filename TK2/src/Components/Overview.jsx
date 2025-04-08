@@ -22,10 +22,10 @@ const Overview = () => {
     loadData();
   }, []);
 
-  const renderBox = (title, data, Icon) => (
-    <div className="overview-box">
+  const renderBox = (title, data, Icon, color) => (
+    <div className="overview-box" style={{ backgroundColor: color }}>
       <span className='box'>
-        <div className="overview-title">{title}</div>
+        <div className="overview-title" style={{color: 'black'}}><h3>{title}</h3></div>
         <Icon className="icon" />
       </span>
       <div className="overview-value">{title === 'New Customer' ? data?.value : `$${data?.value.toLocaleString()}`}</div>
@@ -35,9 +35,9 @@ const Overview = () => {
 
   return (
     <div className="overview-grid">
-      {turnover && renderBox('Turnover', turnover, ShoppingCartIcon)}
-      {profit && renderBox('Profit', profit, CurrencyDollarIcon)} {/* Bạn có thể dùng icon khác nếu cần */}
-      {customers && renderBox('New Customer', customers, UserIcon)}
+      {turnover && renderBox('Turnover', turnover, ShoppingCartIcon,"rgba(253,241,245,255)")}
+      {profit && renderBox('Profit', profit, CurrencyDollarIcon,"rgba(240,247,255,255)")} {/* Bạn có thể dùng icon khác nếu cần */}
+      {customers && renderBox('New Customer', customers, UserIcon,"rgba(240,247,255,255)")}
     </div>
   );
 };

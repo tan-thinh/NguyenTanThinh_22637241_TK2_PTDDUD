@@ -12,28 +12,21 @@ import Messages from "./Pages/Messages"
 import Integration from "./Pages/Integrations"
 import Overview from "./Components/Overview"
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import MainLayout from "./Components/MainLayout";
 function App() {
 
   return (
     <Router>
-      <div className="layout">
-        <Sidebar />
-        <div className="main-content">
-          <Topbar />
-          <h1 style={{ fontSize: '24px', marginBottom: '20px' }}>Overview</h1>
-          <Overview />
-          <div className="page-content">
             <Routes>
-              <Route path="/" element={<Dashboard/>} />
+              <Route path="/" element={<MainLayout></MainLayout>}>
+              <Route index element={<Dashboard/>} />
               <Route path="/projects" element={<Project/>} />
               <Route path="/teams" element={<Team/>} />
               <Route path="/analytics" element={<Analytic></Analytic>} />
               <Route path="/messages" element={<Messages/>} />
               <Route path="/integrations" element={<Integration/>} />
+              </Route> 
             </Routes>
-          </div>
-        </div>
-      </div>
     </Router>
   );
 }
