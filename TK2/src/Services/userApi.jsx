@@ -16,3 +16,15 @@ export const updateUser = async (id, updatedData) => {
 
   return res.json();
 };
+
+export const createUser = async (newUserData) => {
+  const res = await fetch(BASE_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newUserData),
+  });
+
+  if (!res.ok) throw new Error('Failed to create user');
+
+  return res.json();
+};
