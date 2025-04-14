@@ -284,3 +284,25 @@ select {
 .btn.cancel:hover {
     background-color: #bdbdbd;
 }
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.page-btn {
+    padding: 6px 12px;
+    background: #f3f4f6;
+    border: none;
+    border-radius: 6px;
+    color: #374151;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.page-btn.active {
+    background: #4f46e5;
+    color: white;
+}
