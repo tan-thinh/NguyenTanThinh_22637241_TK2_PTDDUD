@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 // import { Outlet } from "react-router-dom";
 import Overview from "../components/Overview";
-import dashboard from "../assets/IMG/Squares four 1.png"
+import dashboard from "../../public/IMG/Squares four 1.png"
 import "../App.css"
 import Dashboard from "../pages/Dashboard";
 function MainLayout() {

@@ -1,7 +1,7 @@
 import React from "react";
 import { BellIcon, QuestionMarkCircleIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 import "../App.css"
-import avt from "../assets/IMG/Avatar 313.png"
+import avt from "../../public/IMG/Avatar 313.png"
 function Topbar() {
     return (
         <div className="Topbar">

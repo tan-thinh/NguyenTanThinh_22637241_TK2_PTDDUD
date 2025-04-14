@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import '../App.css';
 import { PencilIcon } from '@heroicons/react/24/outline';
 // import EditModal from '../EditModal';
-import input from "../assets/IMG/Move up.png";
-import text from "../assets/IMG/File text 1.png";
-import download from "../assets/IMG/Download.png";
+import input from "../../public/IMG/Move up.png";
+import text from "../../public/IMG/File text 1.png";
+import download from "../../public/IMG/Download.png";
 
 const UserTable = ({ users, onUserSave }) => {
   const [selectedUser, setSelectedUser] = useState(null);
@@ -72,7 +72,13 @@ const UserTable = ({ users, onUserSave }) => {
                   onChange={() => handleCheckboxChange(user.id)}
                 />
               </td>
-              <td>{user.name}</td>
+              <td style={{display:'flex', gap: '10px'}}>
+              <img
+                src={user.IMG} // ✅ IMG đã là "/images/IMG 1.png"
+                alt={user.name}
+              />
+              <span style={{margin:'10px'}}>{user.name}</span>
+              </td>
               <td>{user.company}</td>
               <td>${user.ordervalue}</td>
               <td>{formatDate(user.orderdate)}</td>

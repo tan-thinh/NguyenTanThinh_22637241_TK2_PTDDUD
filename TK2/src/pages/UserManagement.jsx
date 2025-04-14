@@ -1,38 +1,20 @@
+// src/Pages/UserManagement.jsx
 import React, { useEffect, useState } from "react";
-// import { getUsers, createUser, updateUser } from "../Services/userApi";
+import userData from "../data/users.json"; 
 import UserTable from "../components/UserTable";
 
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
 
-  const fetchData = async () => {
-    try {
-      const data = await getUsers();
-      setUsers(data);
-    } catch (err) {
-      console.error("Error fetching users:", err);
-    }
-  };
-
   useEffect(() => {
-    fetchData();
+    // Chỉ cần gán dữ liệu khi load
+    setUsers(userData);
   }, []);
 
-  const handleUserSave = async (savedUser) => {
-    try {
-      if (!savedUser.id) {
-        // Thêm mới
-        await createUser(savedUser);
-      } else {
-        // Cập nhật
-        await updateUser(savedUser.id, savedUser);
-      }
-
-      // Load lại danh sách user sau khi thêm hoặc cập nhật
-      await fetchData();
-    } catch (error) {
-      console.error("Error saving user:", error);
-    }
+  // Tạm thời bỏ qua create/update vì không thao tác với backend
+  const handleUserSave = (savedUser) => {
+    console.log("Saving user:", savedUser);
+    // Có thể viết code cập nhật local state ở đây nếu muốn
   };
 
   return (
