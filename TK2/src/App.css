@@ -1,0 +1,286 @@
+.layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    font-family: 'Arial', sans-serif;
+}
+
+.main-content {
+    background-color: #f5f6fa;
+    padding: 20px;
+    /* ❌ Xoá overflow-y: auto */
+}
+
+.Sidebar {
+    background-color: #fff;
+    padding: 20px;
+    border-right: 1px solid #eee;
+    width: 220px;
+    min-height: 100vh;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.03);
+    height: 100vh;
+}
+
+.Sidebar h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.menu {
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    list-style: none;
+    margin-bottom: 16px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu li a:hover {
+    background-color: #fce7ef;
+    color: #f43f5e;
+}
+
+.menu li a.active {
+    background-color: #e60176;
+    color: white;
+    font-weight: bold;
+}
+
+.menu li a.active img.icon {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7489%) hue-rotate(303deg) brightness(115%) contrast(105%);
+}
+
+.Topbar {
+    background-color: #fff;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    gap: 700px;
+}
+
+.Topbar h2 {
+    color: #ed418f;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    /* Center icons vertically */
+    gap: 100px;
+    /* Reduced gap for better spacing */
+}
+
+.search {
+    padding: 10px 12px;
+    width: 100%;
+    width: 700px;
+    /* Set width to 100% */
+    max-width: 700px;
+    /* Max width to limit expansion */
+    box-sizing: border-box;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    color: #333;
+}
+
+.dashboard-container {
+    padding: 24px;
+}
+
+.dashboard-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.overview-box {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.overview-title {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 8px;
+}
+
+.overview-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.overview-change {
+    color: green;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status.new {
+    color: #007bff;
+}
+
+.status.in-progress {
+    color: #ffc107;
+}
+
+.status.completed {
+    color: #28a745;
+}
+
+.action-icon {
+    width: 20px;
+    cursor: pointer;
+}
+
+.table-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+
+/* src/Components/EditModal.css */
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(0.95);
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.form-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 45%;
+}
+
+.full-width {
+    flex: 1 1 100%;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+input,
+select {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    gap: 0.5rem;
+}
+
+.btn {
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn.save {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn.save:hover {
+    background-color: #388e3c;
+}
+
+.btn.cancel {
+    background-color: #e0e0e0;
+}
+
+.btn.cancel:hover {
+    background-color: #bdbdbd;
+}
