@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../App.css';
 import { PencilIcon } from '@heroicons/react/24/outline';
+import { PlusIcon } from '@heroicons/react/24/solid';
 import EditModal from '../services/EditModal';
 import input from "../../public/IMG/Move up.png";
 import text from "../../public/IMG/File text 1.png";
@@ -24,7 +25,18 @@ const UserTable = ({ users, onUserSave }) => {
     onUserSave(updatedUser);
     setSelectedUser(null); // Close modal after save
   };
-
+  const handleAddNew = () => {
+    setSelectedUser({
+      name: '',
+      company: '',
+      ordervalue: '',
+      orderdate: new Date().toISOString().slice(0, 10),
+      status: 'New',
+      IMG: ""
+    });
+    
+  };
+  
 
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
@@ -38,22 +50,19 @@ const UserTable = ({ users, onUserSave }) => {
     <div className="table-container">
       <span className='box'>
         <span className='box'><img src={text} alt="" /><h2> Detailed report</h2></span>
-        <span className='box' style={{ gap: '20px' }}>
-          <button
-            type='button'
-            onClick={() => setSelectedUser({
-              id: null,
-              name: '',
-              company: '',
-              ordervalue: '',
-              orderdate: new Date().toISOString().slice(0, 10),
-              status: 'New',
-            })}
-          >
-            <img src={download} alt="" className='icon' />
-          </button>
-          <button type='button'><img src={input} alt="" className='icon' /></button>
-        </span>
+        <span className='box actions'>
+        <button type='button' onClick={handleAddNew}>
+        <PlusIcon className='icon' />
+        <span>Add New</span>
+        </button>
+        <button type='button'>
+        <img src={download} alt="" className='icon' />
+        </button>
+        <button type='button'>
+        <img src={input} alt="" className='icon' />
+        </button>
+      </span>
+
       </span>
 
       <table className="data-table">
@@ -120,10 +129,11 @@ const UserTable = ({ users, onUserSave }) => {
       {/* Show modal if a user is selected */}
       {selectedUser && (
         <EditModal
-          user={selectedUser}
-          onClose={() => setSelectedUser(null)}
-          onSave={handleUserSave}
-        />
+        user={selectedUser}
+        isNew={!selectedUser?.id}
+        onClose={() => setSelectedUser(null)}
+        onSave={handleUserSave}
+      />      
       )}
     </div>
   );

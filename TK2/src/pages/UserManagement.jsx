@@ -11,15 +11,25 @@ const UserManagement = () => {
       .catch(err => console.error("Fetch error:", err));
   }, []);
 
-  const handleUserSave = (updatedUser) => {
-    axios.put(`http://localhost:3000/users/${updatedUser.id}`, updatedUser)
-      .then(res => {
-        setUsers(prev =>
-          prev.map(user => user.id === updatedUser.id ? res.data : user)
-        );
-      })
-      .catch(err => console.error("Update error:", err));
+  const handleUserSave = async (user) => {
+    try {
+      if (!user.id) {
+        // 🟢 ADD
+        const res = await axios.post("http://localhost:3000/users", user);
+        setUsers(prev => [...prev, res.data]); // Thêm user mới vào state
+      } else {
+        // 🟡 UPDATE
+        const res = await axios.put(`http://localhost:3000/users/${user.id}`, user);
+        setUsers(prev => prev.map(u => (u.id === user.id ? res.data : u))); // Cập nhật user trong state
+      }
+    } catch (err) {
+      console.error("Save error:", err);
+    }
   };
+  
+  
+  
+  
 
   return (
     <div>

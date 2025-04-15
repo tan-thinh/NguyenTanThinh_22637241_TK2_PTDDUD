@@ -272,8 +272,8 @@ select {
     background: white;
     padding: 30px;
     border-radius: 16px;
-    width: 500px;
-    max-width: 90%;
+    width: 520px;
+    max-width: 95%;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     animation: fadeIn 0.3s ease-in-out;
 }
@@ -282,6 +282,47 @@ select {
     margin-bottom: 20px;
     font-size: 24px;
     text-align: center;
+}
+
+
+/* Image + Upload Section */
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.user-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.upload-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.upload-btn:hover {
+    background-color: #2980b9;
 }
 
 .modal .form-group {
@@ -294,37 +335,48 @@ select {
     font-weight: bold;
 }
 
-.modal .form-group input {
+.modal .form-group input,
+.modal .form-group select {
     width: 100%;
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
+    font-size: 14px;
 }
 
 .modal-actions {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
-.modal img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin: 0 auto 20px auto;
-    display: block;
+.modal-actions button {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-actions button:first-child {
+    background-color: #27ae60;
+    color: white;
+}
+
+.modal-actions button:last-child {
+    background-color: #e74c3c;
+    color: white;
 }
 
 @keyframes fadeIn {
     from {
-        transform: translateY(-20px);
         opacity: 0;
+        transform: scale(0.95);
     }
     to {
-        transform: translateY(0);
         opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -348,4 +400,33 @@ select {
 .page-btn.active {
     background: #4f46e5;
     color: white;
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.actions button {
+    display: flex;
+    align-items: center;
+    background-color: #4f46e5;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    gap: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.actions button:hover {
+    background-color: #4338ca;
+}
+
+.actions .icon {
+    width: 20px;
+    height: 20px;
 }

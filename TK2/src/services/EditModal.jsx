@@ -1,61 +1,89 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import '../App.css';
 
-const EditModal = ({ user, onClose, onSave }) => {
+const EditModal = ({  user, isNew, onClose, onSave }) => {
+  
   const [formData, setFormData] = useState({ ...user });
-  const [imagePreview, setImagePreview] = useState(formData.IMG);
-
-  // Handle form input changes
+  const [imagePreview, setImagePreview] = useState(user.IMG || null);
+  const fileInputRef = useRef();
+  // const isNewUser = !formData.id;
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  // Handle image upload
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImagePreview(reader.result); // Set preview of selected image
-        setFormData(prev => ({ ...prev, IMG: reader.result })); // Update formData with the new image
+        setImagePreview(reader.result);
+        setFormData(prev => ({ ...prev, IMG: reader.result }));
       };
       reader.readAsDataURL(file);
     }
   };
 
-  // Handle form submission
+  const handleImageUploadClick = () => {
+    fileInputRef.current.click();
+  };
+
   const handleSubmit = () => {
+    if (!formData.IMG && !isNewUser) return; // Optional check
     onSave(formData);
   };
 
   return (
     <div className="modal-overlay">
       <div className="modal">
-        {/* Display image or upload new one */}
-        <img src={imagePreview} alt={formData.name} className="user-img" />
-        
-        <h2>Edit User</h2>
-        
-        {/* Name Input */}
+      <h2>{isNew ? "Add New User" : "Edit User"}</h2>
+
+        <div className="modal-header">
+          {imagePreview ? (
+            <div className="image-section">
+              <img src={imagePreview} alt="User" className="user-img" />
+              <button onClick={handleImageUploadClick} className="upload-btn">Upload Image</button>
+            </div>
+          ) : (
+            <div className="form-group">
+              <label>Upload Image</label>
+              <input type="file" accept="image/*" onChange={handleImageChange} />
+            </div>
+          )}
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            style={{ display: 'none' }}
+            onChange={handleImageChange}
+          />
+        </div>
+
         <div className="form-group">
           <label>Name</label>
           <input name="name" value={formData.name} onChange={handleChange} />
         </div>
 
-        {/* Company Input */}
         <div className="form-group">
           <label>Company</label>
           <input name="company" value={formData.company} onChange={handleChange} />
         </div>
 
-        {/* Order Value Input */}
         <div className="form-group">
           <label>Order Value</label>
           <input name="ordervalue" value={formData.ordervalue} onChange={handleChange} />
         </div>
 
-        {/* Status Dropdown */}
+        <div className="form-group">
+          <label>Order Date</label>
+          <input
+            type="date"
+            name="orderdate"
+            value={formData.orderdate}
+            onChange={handleChange}
+          />
+        </div>
+
         <div className="form-group">
           <label>Status</label>
           <select name="status" value={formData.status} onChange={handleChange}>
@@ -63,12 +91,6 @@ const EditModal = ({ user, onClose, onSave }) => {
             <option value="In-progress">In-progress</option>
             <option value="Completed">Completed</option>
           </select>
-        </div>
-
-        {/* Image Upload */}
-        <div className="form-group">
-          <label>Upload Image</label>
-          <input type="file" accept="image/*" onChange={handleImageChange} />
         </div>
 
         <div className="modal-actions">
