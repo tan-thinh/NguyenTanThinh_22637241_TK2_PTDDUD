@@ -252,37 +252,80 @@ select {
     font-size: 1rem;
 }
 
+
+/* EditModal.css */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.modal .form-group {
+    margin-bottom: 15px;
+}
+
+.modal .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.modal .form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
 .modal-actions {
     display: flex;
     justify-content: flex-end;
-    margin-top: 1.5rem;
-    gap: 0.5rem;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-.btn {
-    padding: 0.5rem 1.2rem;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
+.modal img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    display: block;
 }
 
-.btn.save {
-    background-color: #4caf50;
-    color: white;
-}
-
-.btn.save:hover {
-    background-color: #388e3c;
-}
-
-.btn.cancel {
-    background-color: #e0e0e0;
-}
-
-.btn.cancel:hover {
-    background-color: #bdbdbd;
+@keyframes fadeIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .pagination {

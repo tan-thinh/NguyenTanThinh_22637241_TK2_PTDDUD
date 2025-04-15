@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../App.css';
 import { PencilIcon } from '@heroicons/react/24/outline';
-// import EditModal from '../EditModal';
+import EditModal from '../services/EditModal';
 import input from "../../public/IMG/Move up.png";
 import text from "../../public/IMG/File text 1.png";
 import download from "../../public/IMG/Download.png";
@@ -19,6 +19,12 @@ const UserTable = ({ users, onUserSave }) => {
   const handleCheckboxChange = (userId) => {
     setCheckedUserId(prev => (prev === userId ? null : userId));
   };
+  const handleUserSave = (updatedUser) => {
+    // Save the updated user to the main users list
+    onUserSave(updatedUser);
+    setSelectedUser(null); // Close modal after save
+  };
+
 
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
@@ -74,7 +80,7 @@ const UserTable = ({ users, onUserSave }) => {
               </td>
               <td style={{display:'flex', gap: '10px'}}>
               <img
-                src={user.IMG} // ✅ IMG đã là "/images/IMG 1.png"
+                src={user.IMG} 
                 alt={user.name}
               />
               <span style={{margin:'10px'}}>{user.name}</span>
@@ -111,14 +117,12 @@ const UserTable = ({ users, onUserSave }) => {
         ))}
       </div>
 
+      {/* Show modal if a user is selected */}
       {selectedUser && (
         <EditModal
           user={selectedUser}
           onClose={() => setSelectedUser(null)}
-          onSave={(updatedUser) => {
-            onUserSave(updatedUser);
-            setSelectedUser(null);
-          }}
+          onSave={handleUserSave}
         />
       )}
     </div>

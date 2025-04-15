@@ -12,7 +12,7 @@ import Messages from "./pages/Messages"
 import Integration from "./pages/Integrations"
 import Overview from "./components/Overview"
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
-import MainLayout from "./ccomponents/MainLayout";
+import MainLayout from "./components/MainLayout";
 
 function App() {
   return (
